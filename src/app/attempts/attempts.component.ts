@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AttemptsComponent implements OnInit {
 
+  public emptyHeart = '/assets/empty_heart.png';
+  public fullHeart = '/assets/full_heart.png';
+
   constructor() { }
 
   ngOnInit() {
