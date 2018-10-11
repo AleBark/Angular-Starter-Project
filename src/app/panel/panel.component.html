@@ -2,32 +2,35 @@
   <div class="jumbotron">
     <div class="row">
       <div class="col-sm-6">
+        <h6>{{infos[0]}}</h6>
         <app-progress></app-progress>
       </div>
       <div class="col-sm-6">
         <div class="d-flex justify-content-end">
+          {{infos[1]}}
+          <span>&nbsp;</span>
           <app-attempts></app-attempts>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <div class="form-group">
-          <h6>Question:</h6>
+        <div class="form-group label">
+          <p>{{infos[2]}}</p>
         </div>
         <div class="form-group question-area">
-          <p>What's my name?</p>
+          <p>{{questions[0].question}}</p>
         </div>
         <div class="form-group">
           <label for="answer_area">Answer:</label>
-          <textarea class="form-control" id="answer_area" rows="3"></textarea>
+          <textarea (input)="updateAnswer($event)" class="form-control" id="answer_area" rows="3"></textarea>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="d-flex justify-content-end">
-          <button type="button" class="btn btn-primary">Send</button>
+          <button type="button" (click)="checkAnswer()" class="btn btn-primary">Send</button>
         </div>
       </div>
     </div>
