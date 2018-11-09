@@ -14,6 +14,7 @@ export class PanelComponent implements OnInit {
   public answer: String = '';
   public round = 0;
   public barPercentage = 0;
+  public attempts = 3;
   public roundQuestion: Questions;
 
   constructor() {
@@ -27,25 +28,27 @@ export class PanelComponent implements OnInit {
     this.roundQuestion = this.questions[this.round];
   }
 
-  public checkAnswer (): void {
+  public checkAnswer(): void {
 
     if (this.roundQuestion.answer === this.answer) {
 
-    alert('Right!');
-    this.round++;
-    this.barPercentage = this.barPercentage + (100 / this.questions.length );
-    this.roundUpdate();
-    this.answer = '';
+      this.round++;
+      this.barPercentage = this.barPercentage + (100 / this.questions.length);
+      this.roundUpdate();
+      this.answer = '';
 
     } else {
+      this.attempts--;
 
-      alert('Wrong!');
+      if (this.attempts === 0) {
+        alert('Game over :(');
+      }
 
     }
 
   }
 
-  public updateAnswer (answer: Event): void {
+  public updateAnswer(answer: Event): void {
     this.answer = (<HTMLInputElement>answer.target).value;
 
   }

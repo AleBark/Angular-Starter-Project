@@ -1,2 +1,2 @@
-<img [src] ="fullHeart">
-<img [src] ="emptyHeart">
+<img *ngFor="let heart of lives" [src]="heart.checkHeart()"/>
+

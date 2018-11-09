@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Heart } from '../shared/hearts.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-attempts',
@@ -7,12 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AttemptsComponent implements OnInit {
 
-  public emptyHeart = '/assets/empty_heart.png';
-  public fullHeart = '/assets/full_heart.png';
+  public lives: Array<Heart> = [new Heart(true), new Heart(true), new Heart(true)];
+  @Input() public attempts: number;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+    console.log(this.attempts);
   }
 
 }
