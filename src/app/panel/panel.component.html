@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-6">
         <h6>{{infos[0]}}</h6>
-        <app-progress></app-progress>
+        <app-progress [barPercentage]="barPercentage"></app-progress>
       </div>
       <div class="col-sm-6">
         <div class="d-flex justify-content-end">
@@ -19,11 +19,11 @@
           <p>{{infos[2]}}</p>
         </div>
         <div class="form-group question-area">
-          <p>{{questions[0].question}}</p>
+          <p>{{roundQuestion.question}}</p>
         </div>
         <div class="form-group">
           <label for="answer_area">Answer:</label>
-          <textarea (input)="updateAnswer($event)" class="form-control" id="answer_area" rows="3"></textarea>
+          <textarea (input)="updateAnswer($event)" class="form-control" [value]="answer" id="answer_area" rows="3"></textarea>
         </div>
       </div>
     </div>
