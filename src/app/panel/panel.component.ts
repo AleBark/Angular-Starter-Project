@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Questions } from '../shared/questions.model';
 import { QUESTIONS } from './questions-mock';
 
@@ -16,6 +16,7 @@ export class PanelComponent implements OnInit {
   public barPercentage = 0;
   public attempts = 3;
   public roundQuestion: Questions;
+  @Output() public endGame: EventEmitter<any> = new EventEmitter();
 
   constructor() {
     this.roundUpdate();
@@ -28,12 +29,21 @@ export class PanelComponent implements OnInit {
     this.roundQuestion = this.questions[this.round];
   }
 
+  public gameOver(won: boolean): void {
+      this.endGame.emit(won);
+  }
+
   public checkAnswer(): void {
 
     if (this.roundQuestion.answer === this.answer) {
 
       this.round++;
       this.barPercentage = this.barPercentage + (100 / this.questions.length);
+
+      if (this.round === this.questions.length) {
+        this.gameOver(true);
+      }
+
       this.roundUpdate();
       this.answer = '';
 
@@ -41,11 +51,10 @@ export class PanelComponent implements OnInit {
       this.attempts--;
 
       if (this.attempts === 0) {
-        alert('Game over :(');
+        this.gameOver(false);
       }
 
     }
-
   }
 
   public updateAnswer(answer: Event): void {
