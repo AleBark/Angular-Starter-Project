@@ -25,12 +25,13 @@ export class PanelComponent implements OnInit {
   ngOnInit() {
   }
 
+
   public roundUpdate(): void {
     this.roundQuestion = this.questions[this.round];
   }
 
   public gameOver(won: boolean): void {
-      this.endGame.emit(won);
+    this.endGame.emit(won);
   }
 
   public checkAnswer(): void {

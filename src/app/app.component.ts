@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  public running = true;
+  public won: boolean;
+
   public endGame(won: boolean): void {
-    console.log(won);
+    this.running = false;
+    this.won = won;
   }
 }
