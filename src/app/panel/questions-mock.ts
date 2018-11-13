@@ -1,9 +1,9 @@
 import { Questions } from '../shared/questions.model';
 
 export const QUESTIONS: Array<Questions> = [
-    { question: 'xxxx', answer: 'x2' },
-    { question: 'yyyy', answer: 'y2' },
-    { question: 'wwww', answer: 'w2' },
-    { question: 'zzzz', answer: 'z2' },
+    { question: 'What was the name of the first high-level programming language?', answer: 'Plankalkul' },
+    { question: 'When it was created?', answer: '1942' },
+    { question: 'Who created it? ', answer: 'Konrad Zuse' },
+    { question: 'Who created the first known computer algorithm?', answer: 'Ada Lovelace' },
 ];
 

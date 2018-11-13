@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { unwatchFile } from 'fs';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,10 @@ export class AppComponent {
   public endGame(won: boolean): void {
     this.running = false;
     this.won = won;
+  }
+
+  public restartGame(): void {
+    this.running = true;
+    this.won = undefined;
   }
 }
